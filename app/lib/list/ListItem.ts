@@ -1,14 +1,10 @@
 import HasId from '../HasId';
 
 export default class ListItem extends HasId {
-  name: string;
-  description: string;
-  fulfilled: boolean;
-
   constructor(
-    name: string,
-    description: string,
-    fulfilled: boolean,
+    public name: string,
+    public description: string,
+    public fulfilled: boolean,
     uuid?: string
   ) {
     super(uuid);

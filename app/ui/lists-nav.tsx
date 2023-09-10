@@ -1,9 +1,8 @@
 'use client';
 import {ReactNode} from 'react';
-import {useAppDispatch, useAppSelector} from '../lib/hooks/hooks';
+import {useAppSelector} from '../lib/hooks/hooks';
 import List from '../lib/list/List';
-import ListItem from '../lib/list/ListItem';
-import {addListItem} from '../lib/store/features/list/ListsSlice';
+import {useRouter} from 'next/navigation';
 
 export default function ListsNav() {
   const state = useAppSelector(state => state.lists);
@@ -13,8 +12,8 @@ export default function ListsNav() {
 
   if (manager) {
     for (let i: number = 0; i < manager.lists.length; i++) {
-      const list = lists.get(manager.lists[i]);
-      if (list) rows.push(ListsNavItem({list}));
+      const list = lists.getById(manager.lists[i]);
+      rows.push(ListsNavItem({list}));
     }
   }
 
@@ -28,17 +27,14 @@ export default function ListsNav() {
 }
 
 function ListsNavItem({list}: {list: List}) {
-  const dispatch = useAppDispatch();
+  const router = useRouter();
   return (
     <tr
       className="hover:bg-base-300 border-base-300 border-b-4 select-none"
-      onClick={() => {
-        const item = new ListItem('New item', 'desc', false);
-        dispatch(addListItem({list, item}));
-      }}
+      key={list.id}
+      onClick={() => router.push(`/list/${list.id}`)}
     >
       <td>{list.name}</td>
-      <td>{list.itemsLeft}</td>
       <td>{`${list.active}`}</td>
       <td>{`${list.items.length}`}</td>
     </tr>

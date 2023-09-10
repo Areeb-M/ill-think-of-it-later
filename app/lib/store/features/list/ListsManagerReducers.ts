@@ -12,11 +12,6 @@ const listsManagerReducers = {
     state.lists.insert(list);
     state.managers.get(manager).addList(list);
   },
-  addManager: (state: ListsState, action: PayloadAction<ListsManager>) => {
-    const manager = action.payload;
-    manager.lists.forEach(list => state.lists.insert(list));
-    state.managers.insert(manager);
-  },
 };
 
 export default listsManagerReducers;

@@ -13,7 +13,7 @@ export interface ListsState {
 }
 
 const initialState: ListsState = {
-  managers: new StateById<ListsManager>([new ListsManager([])]),
+  managers: new StateById<ListsManager>([new ListsManager()]),
   lists: new StateById<List>([]),
   listItems: new StateById<ListItem>([]),
 };
@@ -27,6 +27,6 @@ export const listsSlice = createSlice({
   },
 });
 
-export const {addManager, addList, addListItem} = listsSlice.actions;
+export const {addList, addListItem} = listsSlice.actions;
 
 export default listsSlice.reducer;
