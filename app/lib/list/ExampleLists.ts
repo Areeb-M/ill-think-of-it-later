@@ -1,23 +1,21 @@
-import List from "./List";
-import ListItem from "./ListItem";
+import List from './List';
+import ListItem from './ListItem';
 
-const ListA: List = new List(
-  "List A",
-  [
-    new ListItem("Apples", "Bag of apples", false),
-    new ListItem("Apples", "Bag of apples", false),
-    new ListItem("Apples", "Bag of apples", false),
-    new ListItem("Apples", "Bag of apples", false),
-    new ListItem("Apples", "Bag of apples", true),
-    new ListItem("Apples", "Bag of apples", false),
-    new ListItem("Apples", "Bag of apples", false),
-  ],
-  true,
-);
-const ListB: List = new List(
-  "List B",
-  [new ListItem("Pencils", "A pack of pencils", false)],
-  false,
-);
+const ListA: List = new List('List A', true, [
+  new ListItem('Apples', 'Bag of apples', false),
+  new ListItem('Apples', 'Bag of apples', false),
+  new ListItem('Apples', 'Bag of apples', false),
+  new ListItem('Apples', 'Bag of apples', false),
+  new ListItem('Apples', 'Bag of apples', true),
+  new ListItem('Apples', 'Bag of apples', false),
+  new ListItem('Apples', 'Bag of apples', false),
+]);
+const ListB: List = new List('List B', false, [
+  new ListItem('Pencils', 'A pack of pencils', false),
+]);
 
-export { ListA, ListB };
+function genList() {
+  return new List(ListA.name, ListB.active, ListA.items.slice());
+}
+
+export {genList};

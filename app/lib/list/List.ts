@@ -1,11 +1,17 @@
-import ListItem from "./ListItem";
+import {immerable} from 'immer';
+import ListItem from './ListItem';
+import HasId from '../HasId';
 
-export default class List {
-  name: string;
-  items: Array<ListItem>;
-  active: boolean;
+export default class List extends HasId {
+  [immerable] = true;
 
-  constructor(name: string, items: Array<ListItem>, active: boolean) {
+  constructor(
+    public name: string,
+    public active: boolean,
+    public items: Array<ListItem>,
+    uuid?: string
+  ) {
+    super(uuid);
     this.name = name;
     this.items = items;
     this.active = active;
@@ -19,5 +25,9 @@ export default class List {
     });
 
     return count;
+  }
+
+  public addItem(item: ListItem): number {
+    return this.items.push(item);
   }
 }

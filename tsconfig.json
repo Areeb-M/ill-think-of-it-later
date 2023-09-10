@@ -1,5 +1,7 @@
 {
+  "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
+    "rootDir": ".",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -21,7 +23,7 @@
     "paths": {
       "@/*": ["./*"]
     },
-    "forceConsistentCasingInFileNames": true
+    "outDir": "build"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

@@ -1,7 +1,7 @@
-import StoreProvider from "./lib/store/StoreProvider";
-import AddListButton from "./ui/add-list-button";
-import { SettingsIcon } from "./ui/icons";
-import ListsNav from "./ui/lists-nav";
+import StoreProvider from './lib/store/StoreProvider';
+import AddListButton from './ui/add-list-button';
+import {SettingsIcon} from './ui/icons';
+import ListsNav from './ui/lists-nav';
 
 export default function Home() {
   return (

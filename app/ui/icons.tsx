@@ -38,4 +38,4 @@ function AddObjectIcon() {
   );
 }
 
-export { SettingsIcon, AddObjectIcon };
+export {SettingsIcon, AddObjectIcon};

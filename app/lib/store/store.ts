@@ -1,9 +1,9 @@
-import { configureStore } from "@reduxjs/toolkit";
-import listsManagerReducer from "./features/list/ListsManagerSlice";
+import {configureStore} from '@reduxjs/toolkit';
+import listsReducer from './features/list/ListsSlice';
 
 const store = configureStore({
   reducer: {
-    listsManager: listsManagerReducer,
+    lists: listsReducer,
   },
 });
 
